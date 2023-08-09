@@ -49,3 +49,27 @@ const francine = createPet("Francine", "turtle");
 // baxter.play();
 // console.log(clover);
 // console.log(baxter);
+
+clover.isTired = 8;
+francine.isTired = 9;
+
+const allPets = [sora, clover, baxter, cleo, francine];
+
+//console.log(allPets);
+
+const showPets = function (petArray) {
+    pets.innerHTML = "";
+    for (const pet of allPets) {
+        let status = "ready to play!";
+        if (pet.isTired >= 7) {
+            status = "sleeping";
+        }
+        let li = document.createElement("li");
+        li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}.`;
+        pets.appendChild(li);
+    }
+};
+
+statusButton.addEventListener("click", function () {
+    showPets(allPets);
+});
